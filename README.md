@@ -22,7 +22,7 @@ cd AutomationFrameworkRepo_v01
 ### Visual Studio 2022
 - Open the solution: `AutomationFramework.sln`
 - Go to `Build > Build Solution`
-- Then go to 'Tests > Run All Tests`
+- Then go to `Tests > Run All Tests`
  
 ### Command Line (dotnet)
 From the home directory, execute the following to run all tests

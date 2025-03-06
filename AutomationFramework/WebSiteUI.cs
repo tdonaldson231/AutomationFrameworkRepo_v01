@@ -58,8 +58,7 @@ namespace AutomationFramework
         /// <note>
         ///     Note: Throws an Assert if the user is not directed to the About Us page
         /// </note>
-        [Test]
-        [Category("Regression"), Category("WebSiteUI")]
+        [Test, Category("Regression"), Category("WebSiteUI")]
         public void WebSiteUISearchTextFromAboutPage()
         {
             // assigning categories for reports

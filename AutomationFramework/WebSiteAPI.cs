@@ -39,12 +39,11 @@ namespace AutomationFramework
         /// <note>
         ///     Note: Throws an Assert if the returned status codes does not equal OK
         /// </note>
-        [Test]
-        [Category("Regression"), Category("WebSiteAPI")]
+        [Test, Category("Regression"), Category("API")]
         public void WebSiteAPIGetBackendStatus()
         {
             // assigning categories for reports
-            extentReportsTest.AssignCategory("Regression", "WebSiteAPI");
+            extentReportsTest.AssignCategory("Regression", "API");
 
             // test case variables
             string apiUrl = "https://httpbin.org/get";
@@ -67,12 +66,11 @@ namespace AutomationFramework
         /// <summary>
         ///   This case is checking the error handling method.
         /// </summary>
-        [Test]
-        [Category("Regression"), Category("WebSiteAPI")]
+        [Test, Category("Regression"), Category("API")]
         public void WebSiteAPIPostDataBackendService()
         {
             // assigning categories for reports
-            extentReportsTest.AssignCategory("Regression", "WebSiteAPI");
+            extentReportsTest.AssignCategory("Regression", "API");
 
             // test case variables
             string apiUrl = "https://reqres.in/api/users/2";
