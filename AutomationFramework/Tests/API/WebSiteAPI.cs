@@ -3,13 +3,13 @@ using RelevantCodes.ExtentReports;
 using RestSharp;
 using AutomationFramework.Lib;
 
-namespace AutomationFramework
+namespace RestApi
 {
     /// <summary>
     ///   class used by api test cases
     /// </summary>
     [TestFixture]
-    public class WebSiteAPI : Base
+    public class RestSharp : Base
     {
         // class level variables
         private ExtentTest extentReportsTest;

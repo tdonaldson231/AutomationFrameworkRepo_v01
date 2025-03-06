@@ -6,13 +6,13 @@ using RelevantCodes.ExtentReports;
 using AutomationFramework.Lib;
 using AutomationFramework.PageObjects.Website;
 
-namespace AutomationFramework
+namespace UserInterface
 {
     /// <summary>
     ///   class for UI test cases currently using selenium
     /// </summary>
     [TestFixture]
-    public class WebSiteUI : Base
+    public class Selenium : Base
     {
         // class level variables
         private ExtentTest extentReportsTest;
