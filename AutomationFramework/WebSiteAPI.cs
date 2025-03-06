@@ -5,12 +5,18 @@ using AutomationFramework.Lib;
 
 namespace AutomationFramework
 {
+    /// <summary>
+    ///   class used by api test cases
+    /// </summary>
     [TestFixture]
     public class WebSiteAPI : Base
     {
         // class level variables
         private ExtentTest extentReportsTest;
 
+        /// <summary>
+        ///   necessary setup be for test execution
+        /// </summary>
         [SetUp]
         public void BeforeTest()
         {
@@ -48,7 +54,7 @@ namespace AutomationFramework
             extentReportsTest.Log(LogStatus.Info, "MRN-303: API Get", "API Get to obtain Status");
             
             // executed an API get to the specified URL can getting status code
-            IRestResponse response = client.Get(new RestRequest());
+            RestResponse response = client.Get(new RestRequest());
             System.Net.HttpStatusCode statusCode = response.StatusCode;
 
             // logging step for get command
@@ -58,7 +64,9 @@ namespace AutomationFramework
             StringAssert.AreEqualIgnoringCase("OK", statusCode.ToString());
         }
 
-
+        /// <summary>
+        ///   This case is checking the error handling method.
+        /// </summary>
         [Test]
         [Category("Regression"), Category("WebSiteAPI")]
         public void WebSiteAPIPostDataBackendService()
@@ -67,23 +75,27 @@ namespace AutomationFramework
             extentReportsTest.AssignCategory("Regression", "WebSiteAPI");
 
             // test case variables
-            string apiUrl = "https://httpbin.org/post/1";
+            string apiUrl = "https://reqres.in/api/users/2";
             var client = new RestClient(apiUrl);
 
             // logging step for get command
             extentReportsTest.Log(LogStatus.Info, "MRN-304: API Post", "API POST to obtain Status");
             
             // executed an API get to the specified URL can getting status code
-            IRestResponse response = client.Post(new RestRequest());
+            RestResponse response = client.Post(new RestRequest());
             System.Net.HttpStatusCode statusCode = response.StatusCode;
 
             // logging step for get command
             extentReportsTest.Log(LogStatus.Info, "MRN-304: API Status Code", "API Status Recieved");
-            
+
             // verifying status code is 200 (OK = the request was received )
             StringAssert.AreEqualIgnoringCase("OK", statusCode.ToString());
+            //StringAssert.AreEqualIgnoringCase("Created", statusCode.ToString());
         }
 
+        /// <summary>
+        ///   test down used to generate report results
+        /// </summary>
         [TearDown]
         public void AfterTest()
         {

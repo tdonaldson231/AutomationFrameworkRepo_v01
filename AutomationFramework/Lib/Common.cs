@@ -7,6 +7,9 @@ using System.IO;
 
 namespace AutomationFramework.Lib
 {
+    /// <summary>
+    ///   common used by all test cases
+    /// </summary>
     public class Common : Base
     {
         /// <name>

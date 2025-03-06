@@ -8,6 +8,9 @@ using AutomationFramework.PageObjects.Website;
 
 namespace AutomationFramework
 {
+    /// <summary>
+    ///   class for UI test cases currently using selenium
+    /// </summary>
     [TestFixture]
     public class WebSiteUI : Base
     {
@@ -16,6 +19,9 @@ namespace AutomationFramework
         private HomePage homePage;
         private AboutPage aboutPage;
 
+        /// <summary>
+        ///   basic setup for selenium webdriver
+        /// </summary>
         [OneTimeSetUpAttribute]
         public void BeforeClass()
         {
@@ -23,6 +29,9 @@ namespace AutomationFramework
             webDriver = Base.getSeleniumDriver();
         }
 
+        /// <summary>
+        ///   setting up html reports for ui test case results
+        /// </summary>
         [SetUp]
         public void BeforeTest()
         {
@@ -63,12 +72,15 @@ namespace AutomationFramework
                 "MRN-305: Step 1", "Clicked on About Us link");
 
             // checking if the page header is present
-            string expectedPageLabel = "About Us";
+            string expectedPageLabel = "We elevate the way the world";
             Assert.IsTrue(aboutPage.ValidatePageHeader(expectedPageLabel));
             extentReportsTest.Log(LogStatus.Info,
                 "MRN-305: Step 2", "Verify user is directed to About Us page");
         }
 
+        /// <summary>
+        ///   generating report results for ui test cases
+        /// </summary>
         [TearDown]
         public void AfterTest()
         {
@@ -82,6 +94,9 @@ namespace AutomationFramework
             extentReports.Flush();
         }
 
+        /// <summary>
+        ///   ending webdriver session after test is completed
+        /// </summary>
         [OneTimeTearDown]
         public void AfterClass()
         {

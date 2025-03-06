@@ -1,4 +1,4 @@
-﻿        using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using RelevantCodes.ExtentReports;
@@ -17,9 +17,12 @@ namespace AutomationFramework.PageObjects.Website
             PageFactory.InitElements(webDriver, this);
             this.extentReportsTest = extentReportsTest;
         }
-       
-        [FindsBy(How = How.CssSelector, Using = "#nav > li.about-us > a")]
+
+        //[FindsBy(How = How.Id, Using = "comp-ihjax7ir3label")]
+        //[FindsBy(How = How.XPath, Using = "//span[@class='MV3Tnb' and text()='About']")]
+        [FindsBy(How = How.XPath, Using = "//a[text()='About']")]
         public IWebElement AboutPageLink { get; set; }
+
         public void ClickAboutPageLink()
         {
             try

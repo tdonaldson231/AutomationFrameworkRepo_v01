@@ -7,16 +7,35 @@ using OpenQA.Selenium.Chrome;
 
 namespace AutomationFramework.Lib
 {
+    /// <summary>
+    ///   Base class used for project initialization
+    /// </summary>
     public class Base
     {
-        // base class variables
+        /// <summary>
+        ///   base class variables
+        /// </summary>
         public static string projectPath = null;
+        /// <summary>
+        ///   used for reporting
+        /// </summary>
         public static ExtentReports extentReports = null;
+        /// <summary>
+        ///   selenium webdriver for ui verification
+        /// </summary>
         public static IWebDriver webDriver = null;
-        public static string url = "http://www.aspencapital.com";
+        /// <summary>
+        ///   test url for automation verification
+        /// </summary>
+        public static string url = "https://ultimateqa.com/automation";
+        /// <summary>
+        ///   date and time stamp used for html reports
+        /// </summary>
         public static string dateTime = string.Format("{0:yyyy-MM-dd_hh-mm-ss-tt}", DateTime.Now);
 
-        // base class constructor to intialize the project path and extent reports
+        /// <summary>
+        ///   base class constructor to intialize the project path and extent reports
+        /// </summary>
         public Base()
         {
             // obtaining the current solution path/project path
@@ -31,7 +50,7 @@ namespace AutomationFramework.Lib
             if (extentReports == null)
             {
                 // appending the html report file to current project path
-                string reportPath = projectPath + "Reports\\ACARSReport_" +
+                string reportPath = projectPath + "Reports\\ExtentReport_" +
                     Base.dateTime + ".html";
 
                 // boolean value for replacing existing report
@@ -69,7 +88,7 @@ namespace AutomationFramework.Lib
             {
                 try
                 {
-                    webDriver = new ChromeDriver(Base.projectPath + "\\Drivers");
+                    webDriver = new ChromeDriver();
                     webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(5000);
                     webDriver.Manage().Window.Maximize();
                     webDriver.Navigate().GoToUrl(Base.url);

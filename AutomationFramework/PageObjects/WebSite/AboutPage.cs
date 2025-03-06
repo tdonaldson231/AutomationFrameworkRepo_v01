@@ -18,21 +18,23 @@ namespace AutomationFramework.PageObjects.Website
             PageFactory.InitElements(webDriver, this);
             this.extentReportsTest = extentReportsTest;
         }
-     
-        [FindsBy(How = How.Id, Using = "header")]
-        public IWebElement AboutPageLabel { get; set; }
+
+        //[FindsBy(How = How.XPath, Using = "//span[@class='wixui-rich-text__text' and text()='CONTACT']")]
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'We elevate the way the world')]")]
+        public IWebElement PageHeaderLabel { get; set; }
+
         public bool ValidatePageHeader(string expectedHeader)
         {
             try
             {
-                Assert.IsTrue(this.AboutPageLabel.Text.Contains(expectedHeader),
-                "The Web Page does not contains the specified label");
+                Assert.IsTrue(this.PageHeaderLabel.Text.Contains(expectedHeader),
+                "The Web Page does not contain the specified label");
             }
             catch (Exception ex)
             {
-                extentReportsTest.Log(LogStatus.Error, 
+                extentReportsTest.Log(LogStatus.Error,
                     extentReportsTest.AddScreenCapture(Common.getScreenCapture(
-                            projectPath, "ValidatePageHeader")), 
+                            projectPath, "ValidatePageHeader")),
                     "Exception: " + ex.Message);
                 return false;
             }
